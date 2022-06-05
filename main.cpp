@@ -2,7 +2,7 @@
 #include "Order.h"
 
 void test_1(); //constructors
-void test_2(); // functions of order
+void test_2(); // methods of order
 
 int main() {
 
@@ -24,7 +24,7 @@ void test_1(){
 
 void test_2(){
     ProductInfo inf_1 ("apple");
-    WeightProduct prod_1 (inf_1, 1.1);
+    WeightProduct prod_1 (inf_1, 5.2);
     WeightPosition pos_1 (&prod_1, 2.2);
 
     ProductInfo inf_2 ("cucumber");
@@ -32,13 +32,20 @@ void test_2(){
     WeightPosition pos_2 (&prod_2, 5.1);
 
     ProductInfo inf_3 ("hammer");
-    AmountProduct prod_3 (inf_3, 1.1);
-    AmountPosition pos_3 (&prod_2, 1);
+    AmountProduct prod_3 (inf_3, 19);
+    AmountPosition pos_3 (&prod_3, 1);
 
     Order order;
+    std::cout << std::endl << "Is empty?: " << order.empty() << std::endl;
+    std::cout <<"here positions are added"<< std::endl;
+
     order.add_position(&pos_1);
     order.add_position(&pos_2);
     order.add_position(&pos_3);
 
+    std::cout << std::endl << "Is empty?: " << order.empty() << std::endl;
     order.get_info();
+    std::cout  << "Total coast: " << order.get_cost();
+    std::cout << std::endl << "Is empty?: " << order.empty();
+
 }

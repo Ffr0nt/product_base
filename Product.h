@@ -6,6 +6,7 @@
 #define PRODUCT_BASE_PRODUCT_H
 #include "string"
 
+
 // basic class to contain name about
 class ProductInfo{
 public:
@@ -34,12 +35,14 @@ protected:
 // contain price per kg
 class WeightProduct: public Product{
 public:
-WeightProduct(ProductInfo product_info, double cost_per_kg):
+    WeightProduct(ProductInfo product_info, double cost_per_kg):
         Product(product_info),m_cost_per_kg(cost_per_kg){}
 
-std::string get_info() override{ return m_product_info.get_info() + ": " + std::to_string(m_cost_per_kg); }
+        std::string get_info() override{ return m_product_info.get_info() + ": " \
+        + std::to_string(m_cost_per_kg) + "per kg"; }
 
-double get_cost() { return m_cost_per_kg; }
+
+    double get_price() override { return m_cost_per_kg; }
 private:
 double m_cost_per_kg;
 };
@@ -51,9 +54,10 @@ public:
     AmountProduct(ProductInfo product_info, double cost_per_one):
             Product(product_info), m_cost_per_one(cost_per_one){}
 
-    std::string get_info() override{ return m_product_info.get_info()+ ": " +std::to_string(m_cost_per_one); }
+    std::string get_info() override{ return m_product_info.get_info()+ ": "\
+    +std::to_string(m_cost_per_one) + " per one"; }
 
-    double get_cost() { return m_cost_per_one; }
+    double get_price() override { return m_cost_per_one; }
 private:
     double m_cost_per_one;
 };
