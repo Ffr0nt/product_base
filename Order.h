@@ -11,6 +11,8 @@
 
 class Order{
 public:
+    friend class Client;
+
     Order() = default;
 
     void add_position(Position* ptr_pos);

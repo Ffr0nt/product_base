@@ -1,12 +1,14 @@
 #include <iostream>
 #include "Order.h"
+#include "Client.h"
 
 void test_1(); //constructors
-void test_2(); // methods of order
+void test_2(); // methods of Order
+void test_3(); // methods of client
 
 int main() {
 
-    test_2();
+    test_3();
 
     return 0;
 }
@@ -47,5 +49,27 @@ void test_2(){
     order.get_info();
     std::cout  << "Total coast: " << order.get_cost();
     std::cout << std::endl << "Is empty?: " << order.empty();
+
+}
+
+void test_3(){
+    ProductInfo inf_1 ("apple");
+    WeightProduct prod_1 (inf_1, 5.2);
+    WeightPosition pos_1 (&prod_1, 2.2);
+
+    ProductInfo inf_2 ("cucumber");
+    WeightProduct prod_2 (inf_2, 1.1);
+    WeightPosition pos_2 (&prod_2, 5.1);
+
+    ProductInfo inf_3 ("hammer");
+    AmountProduct prod_3 (inf_3, 19);
+    AmountPosition pos_3 (&prod_3, 1);
+
+    Order order;
+    order.add_position(&pos_1);
+    order.add_position(&pos_2);
+    order.add_position(&pos_3);
+
+    Client
 
 }
