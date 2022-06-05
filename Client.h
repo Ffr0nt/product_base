@@ -21,8 +21,10 @@ private:
 class Client{
 public:
     void earn_money(double money){m_balance.add_money(money);}
-    bool pay_and_recive_order(Order order){
-        if(m_balance.waste_money( order.get_cost()) ){ order.clear(); return true;}
+    bool pay_and_recive_order(Order& order){
+        if(m_balance.waste_money( order.get_cost()) ){
+            order.clear();
+            return true;}
         else { std::cout << "Not enough money for this order!"; return false;}
     };
 private:

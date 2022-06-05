@@ -24,7 +24,10 @@ public:
     bool empty();
 
 private:
-    void clear();
+    void clear(){
+        m_ptr_positions.clear();
+
+    };
 
     std::vector<Position*> m_ptr_positions;
 };

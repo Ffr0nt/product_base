@@ -25,15 +25,9 @@ void Order::get_info() {
     std::cout<<  "--------------------------------------" << std::endl;
 }
 
-
 // shows if order is empty
 bool Order::empty() {
     return m_ptr_positions.empty();
-}
-
-// clear all the positions in order
-void Order::clear() {
-    m_ptr_positions.clear();
 }
 
 // add position to the order

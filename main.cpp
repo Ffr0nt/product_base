@@ -1,5 +1,4 @@
 #include <iostream>
-#include "Order.h"
 #include "Client.h"
 
 void test_1(); //constructors
@@ -70,6 +69,15 @@ void test_3(){
     order.add_position(&pos_2);
     order.add_position(&pos_3);
 
-    Client
+    Client feo;
+    feo.pay_and_recive_order(order);
+
+    feo.earn_money(100);
+
+    std::cout << std::endl << "Order get cost: " << order.get_cost()<< std::endl;
+
+    std::cout << std::endl << int( feo.pay_and_recive_order(order) );
+
+    std::cout  << "Is order empty?: " << order.empty() << std::endl;
 
 }
