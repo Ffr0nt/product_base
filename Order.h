@@ -4,15 +4,18 @@
 
 #ifndef PRODUCT_BASE_ORDER_H
 #define PRODUCT_BASE_ORDER_H
+
 #include "Position.h"
 #include "vector"
+#include <iostream>
 
 class Order{
 public:
     Order() = default;
-    void add_position(){};
 
-    double get_cost(Position* ptr_pos);
+    void add_position(Position* ptr_pos);
+
+    double get_cost();
 
     void get_info();
 
@@ -25,3 +28,5 @@ private:
 };
 
 #endif //PRODUCT_BASE_ORDER_H
+
+#include "Order.hpp"
