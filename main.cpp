@@ -6,9 +6,8 @@ void test_2(); // functions of order
 
 int main() {
 
+    test_2();
 
-
-    std::cout << "Hello, World!" << std::endl;
     return 0;
 }
 
