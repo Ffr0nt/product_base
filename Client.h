@@ -25,7 +25,7 @@ public:
         if(m_balance.waste_money( order.get_cost()) ){
             order.clear();
             return true;}
-        else { std::cout << "Not enough money for this order!"; return false;}
+        else { std::cout << "Not enough money for this order!"<<std::endl; return false;}
     };
 private:
     Balance m_balance;

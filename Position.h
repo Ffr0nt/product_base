@@ -10,7 +10,7 @@
 // get virtual pure methods get_cost, get_quantity
 class Position{
 public:
-    Position(Product* product): m_product(product){};
+    Position(Product& product): m_product(&product){};
 
     Product* get_ptr_product(){return m_product;}
 
@@ -23,7 +23,7 @@ protected:
 
 class AmountPosition: public Position{
 public:
-    AmountPosition(Product* product, size_t amount): Position(product), m_amount(amount){};
+    AmountPosition(Product& product, size_t amount): Position(product), m_amount(amount){};
 
     double get_cost() override{ return m_product->get_price() * m_amount;}
 
@@ -35,14 +35,14 @@ private:
 
 class WeightPosition: public Position{
 public:
-    WeightPosition(Product* product, size_t weight): Position(product), m_weight(weight){};
+    WeightPosition( Product& product, double weight): Position(product), m_weight(weight){};
 
     double get_cost() override{ return m_product->get_price() * m_weight;}
 
     double get_quantity() override {return m_weight;}
 
 private:
-    size_t m_weight;
+    double m_weight;
 };
 
 #endif //PRODUCT_BASE_POSITION_H

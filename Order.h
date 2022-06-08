@@ -15,7 +15,7 @@ public:
 
     Order() = default;
 
-    void add_position(Position* ptr_pos);
+    void add_position(Position& ptr_pos);
 
     double get_cost();
 

@@ -5,6 +5,8 @@
 
 #include "PriceBase.h"
 
+///-------------------------/PriceBase_Original/-------------------------------
+
 PriceBase_Original::PriceBase_Original() {
     m_products_info = {
             {"Apple", ProductInfo("Holy Moly - sweet apple")},
@@ -42,10 +44,13 @@ WeightProduct PriceBase_Original::get_product_weight_price(std::string name) {
 ///-------------------------/PriceBase_Proxy/-------------------------------
 
 WeightProduct PriceBase_Proxy::get_product_weight_price(std::string name) {
+
+    //    check if there is necessary info in local memory
     for (auto[w_name , w_prod] : m_products_weight_price){
         if (w_name == name) return w_prod;
     }
 
+    //    if not, go to main database
     auto answer = m_base.get_product_weight_price(name);
         m_products_weight_price.push_front({name, answer});
         if ( m_products_weight_price.size() >= m_size_of_memory ) m_products_weight_price.pop_back();
@@ -54,16 +59,18 @@ WeightProduct PriceBase_Proxy::get_product_weight_price(std::string name) {
 }
 
 AmountProduct PriceBase_Proxy::get_product_amount_price(std::string name) {
+//    check if there is necessary info in local memory
     for (auto[a_name , a_prod] : m_products_amount_price){
         if (a_name == name) return a_prod;
     }
 
+//    if not, go to main database
     auto answer = m_base.get_product_amount_price(name);
     m_products_amount_price.push_front({name, answer});
     if ( m_products_amount_price.size() >= m_size_of_memory ) m_products_amount_price.pop_back();
 
 
-    return  m_base.get_product_amount_price(name);
+    return  answer;
 
 }
 
