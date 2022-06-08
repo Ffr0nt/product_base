@@ -6,19 +6,19 @@
 #define PRODUCT_BASE_CLIENT_H
 #include "Order.h"
 
-class Balance{
-public:
-    void add_money(double money) {m_money += money;}
-    bool waste_money(double money){
-        if (m_money >= money){m_money-= money; return true;}
-        else  return false;
-    };
-private:
-    double m_money = 0;
-};
-
-
 class Client{
+
+    class Balance{
+    public:
+        void add_money(double money) {m_money += money;}
+        bool waste_money(double money){
+            if (m_money >= money){m_money-= money; return true;}
+            else  return false;
+        };
+    private:
+        double m_money = 0;
+    };
+
 public:
     void earn_money(double money){m_balance.add_money(money);}
     bool pay_and_recive_order(Order& order){

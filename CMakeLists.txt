@@ -3,4 +3,4 @@ project(product_base)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(product_base main.cpp Product.h Position.h Order.h Order.hpp Client.h)
+add_executable(product_base main.cpp Product.h Position.h Order.h Order.hpp Client.h PriceBase.h PriceBase.hpp)

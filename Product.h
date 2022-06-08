@@ -21,7 +21,7 @@ private:
 // and virtual methods get_info, get_price
 class Product{
 public:
-    Product(ProductInfo product_info): m_product_info(product_info){};
+    Product(ProductInfo& product_info): m_product_info(product_info){};
 
     virtual std::string get_info(){};
 
@@ -35,11 +35,11 @@ protected:
 // contain price per kg
 class WeightProduct: public Product{
 public:
-    WeightProduct(ProductInfo product_info, double cost_per_kg):
-        Product(product_info),m_cost_per_kg(cost_per_kg){}
+    WeightProduct(ProductInfo& product_info, double cost_per_kg):
+        Product(product_info),m_cost_per_kg(cost_per_kg){};
 
-        std::string get_info() override{ return m_product_info.get_info() + ": " \
-        + std::to_string(m_cost_per_kg) + "per kg"; }
+    std::string get_info() override{ return m_product_info.get_info() + ": " \
+    + std::to_string(m_cost_per_kg) + "per kg"; };
 
 
     double get_price() override { return m_cost_per_kg; }
@@ -51,11 +51,12 @@ double m_cost_per_kg;
 // contain price per amount
 class AmountProduct: public Product{
 public:
-    AmountProduct(ProductInfo product_info, double cost_per_one):
-            Product(product_info), m_cost_per_one(cost_per_one){}
+    AmountProduct(ProductInfo& product_info, double cost_per_one):
+            Product(product_info), m_cost_per_one(cost_per_one){};
+
 
     std::string get_info() override{ return m_product_info.get_info()+ ": "\
-    +std::to_string(m_cost_per_one) + " per one"; }
+    +std::to_string(m_cost_per_one) + " per one"; };
 
     double get_price() override { return m_cost_per_one; }
 private:

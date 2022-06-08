@@ -1,13 +1,17 @@
 #include <iostream>
 #include "Client.h"
+#include "PriceBase.h"
 
 void test_1(); //constructors
 void test_2(); // methods of Order
-void test_3(); // methods of client
+void test_3(); // methods of Client
+void test_4();
 
 int main() {
-
+    test_1();
+    test_2();
     test_3();
+    test_4();
 
     return 0;
 }
@@ -81,3 +85,7 @@ void test_3(){
     std::cout  << "Is order empty?: " << order.empty() << std::endl;
 
 }
+
+void test_4(){
+
+};

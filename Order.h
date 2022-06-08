@@ -26,7 +26,6 @@ public:
 private:
     void clear(){
         m_ptr_positions.clear();
-
     };
 
     std::vector<Position*> m_ptr_positions;
