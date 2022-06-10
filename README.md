@@ -34,3 +34,5 @@ If there is not enough money, then waste_money will return false without changin
 ## PriceBase
 ![PriceBase](https://user-images.githubusercontent.com/91899443/172856013-f518ee74-2bd0-4a84-8dc9-4091ca1f15ce.png)
 
+This class stores  positions, in order to include them in order. Consist of two parts: ProductBase_Original and ProductBase_Proxy, which are connected as in proxy pattern. ProductBase_Original - stores all info about products Products (ProductInfo, WheightProduct and AmountProduct). Meanwhile ProductBase_Proxy stores m_size_of_memory objects in its resources (in order to give fast access ).
+
