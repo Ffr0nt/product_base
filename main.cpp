@@ -2,16 +2,18 @@
 #include "Client.h"
 #include "PriceBase.h"
 
-void test_1(); //constructors
+void test_1(); // constructors
 void test_2(); // methods of Order
 void test_3(); // methods of Client
-void test_4();
+void test_4(); // exceptions
+void test_5(); // final scenario
 
 int main() {
 //    test_1();
 //    test_2();
 //    test_3();
     test_4();
+//    test_5();
 
     return 0;
 }
@@ -87,6 +89,22 @@ void test_3(){
 }
 
 void test_4(){
+    PriceBase_Proxy base (2);
+
+    try{
+        base.get_product_amount_price("rice");
+    }
+    catch(std::out_of_range ex) {std::cout << ex.what();}
+
+    std::cout << std::endl <<  base.get_product_weight_price("Apple").get_info();
+
+    std::cout << std::endl <<  base.get_product_amount_price("Laba").get_info();
+    std::cout << std::endl <<  base.get_product_amount_price("Pencil").get_info();
+    std::cout << std::endl <<  base.get_product_amount_price("Book").get_info();
+}
+
+
+void test_5(){
     PriceBase_Proxy base (1);
 
     Order order;

@@ -53,7 +53,7 @@ WeightProduct PriceBase_Proxy::get_product_weight_price(std::string name) {
     //    if not, go to main database
     auto answer = m_base.get_product_weight_price(name);
         m_products_weight_price.push_front({name, answer});
-        if ( m_products_weight_price.size() >= m_size_of_memory ) m_products_weight_price.pop_back();
+        if ( m_products_weight_price.size() >= m_size_of_memory + 1 ) m_products_weight_price.pop_back();
     return answer;
 
 }
@@ -67,7 +67,7 @@ AmountProduct PriceBase_Proxy::get_product_amount_price(std::string name) {
 //    if not, go to main database
     auto answer = m_base.get_product_amount_price(name);
     m_products_amount_price.push_front({name, answer});
-    if ( m_products_amount_price.size() >= m_size_of_memory ) m_products_amount_price.pop_back();
+    if ( m_products_amount_price.size() >= m_size_of_memory + 1 ) m_products_amount_price.pop_back();
 
 
     return  answer;
