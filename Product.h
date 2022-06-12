@@ -23,9 +23,9 @@ class Product{
 public:
     Product(ProductInfo& product_info): m_product_info(product_info){};
 
-    virtual std::string get_info(){};
+    virtual std::string get_info() = 0;
 
-    virtual double get_price(){};
+    virtual double get_price() = 0;
 
 protected:
     ProductInfo m_product_info;

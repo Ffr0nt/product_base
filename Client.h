@@ -20,7 +20,7 @@ class Client{
     };
 
 public:
-    void earn_money(double money){m_balance.add_money(money);}
+    void earn_money(double money){ m_balance.add_money(money); }
     bool pay_and_recive_order(Order& order){
         if(m_balance.waste_money( order.get_cost()) ){
             order.clear();

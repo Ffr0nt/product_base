@@ -13,15 +13,14 @@ using inf_for_map = std::initializer_list<std::pair<string,ProductInfo>>;
 using weight_for_map = std::initializer_list<std::pair<string, WeightProduct>>;
 using amount_for_map = std::initializer_list<std::pair<string, AmountProduct>>;
 
-class PriceBase_Parent {
-public:
+struct PriceBase_Parent {
 // virtual methods
     virtual WeightProduct get_product_weight_price(std::string name) = 0;
 
     virtual AmountProduct get_product_amount_price(std::string name) = 0;
 };
 
-class PriceBase_Original: public PriceBase_Parent{
+class PriceBase_Original: PriceBase_Parent{
 public:
     PriceBase_Original(const PriceBase_Original &) = delete;
 
@@ -39,9 +38,9 @@ protected:
     PriceBase_Original();
 };
 
-class PriceBase_Proxy:  public PriceBase_Parent{
+class PriceBase_Proxy: PriceBase_Parent{
 public:
-    PriceBase_Proxy(const size_t& size_of_memory) : m_size_of_memory(size_of_memory) {};
+    PriceBase_Proxy(size_t size_of_memory) : m_size_of_memory(size_of_memory) {};
 
     WeightProduct get_product_weight_price(std::string name) override;
 

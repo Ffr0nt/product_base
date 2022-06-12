@@ -9,10 +9,10 @@ void test_4(); // exceptions
 void test_5(); // final scenario
 
 int main() {
-    test_1();
+//    test_1();
 //    test_2();
 //    test_3();
-//    test_4();
+    test_4();
 //    test_5();
 
     return 0;
@@ -40,6 +40,9 @@ void test_2(){
 
     ProductInfo inf_3 ("hammer");
     AmountProduct prod_3 (inf_3, 19);
+
+
+
     AmountPosition pos_3 (prod_3, 1);
 
     Order order;
